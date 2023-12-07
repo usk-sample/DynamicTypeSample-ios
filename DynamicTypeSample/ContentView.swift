@@ -23,9 +23,17 @@ struct ContentView: View {
         VStack {
             
             Text("current : \(dynamicTypeSize.description)")
-            Text("Aa あ")
-                .dynamicTypeSize(dynamicTypeSize)
-                .frame(height: 100)
+            VStack {
+                Text("Title").font(.title)
+                Text("Body").font(.body)
+                Button("Send to Car", systemImage: "mappin.circle", action: { })
+                    .font(.body)
+                    .frame(height: 44)
+                Text("Callout").font(.caption)
+            }
+            .dynamicTypeSize(dynamicTypeSize)
+            .frame(height: 200)
+
             LazyVGrid(columns: columns) {
                 ForEach(sizes.indices, id: \.self) { index in
                     Button(sizes[index].description) {
